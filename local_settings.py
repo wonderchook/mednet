@@ -5,7 +5,7 @@ DATABASE_PASSWORD = 'xxx'
 DATABASE_HOST = ''
 DATABASE_PORT = ''
 
-MEDIA_URL = 'http://haiti.opensgi.net/media'
+MEDIA_URL = 'http://kapab.org/media'
 
 MAIL_SERVER = 'pop.gmail.com'
 MAIL_PORT = 995
