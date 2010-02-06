@@ -93,4 +93,7 @@ INSTALLED_APPS = (
     'olwidget',
 )
 
-from local_settings import *
+try:
+	from local_settings import *
+except:
+	pass
