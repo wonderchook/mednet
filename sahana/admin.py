@@ -2,7 +2,7 @@ from mednet.sahana.models import *
 from django.contrib.gis import admin
 
 class HmsHospitalAdmin(admin.OSMGeoAdmin):
-    list_display = ('name', 'city', 'ems_status', 'facility_status', 'clinical_status', 'security_status')
+    list_display = ('name', 'city', 'phone_business', 'phone_emergency', 'ems_status', 'facility_status', 'clinical_status', 'security_status')
     search_fields = ('name', 'comments', 'phone_business', 'phone_emergency', 'email')
     list_filter = ('facility_status', 'clinical_status', 'security_status')
 
