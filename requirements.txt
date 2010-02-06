@@ -1,0 +1,4 @@
+#Switch to django 1.2 once it's released
+-e svn+http://code.djangoproject.com/svn/django/trunk/#egg=django
+http://bitbucket.org/jespern/django-piston/downloads/django-piston-0.2.2.tar.gz
+simplejson
