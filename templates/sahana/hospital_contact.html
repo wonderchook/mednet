@@ -1,0 +1,18 @@
+<html>
+<head>
+<script type='text/javascript' src="/media/js/jquery.js"></script>
+<script type='text/javascript' src="/media/js/kapab-message.js"></script>
+</head>
+<body>
+<center>
+<h2>Hospital Contact Form</h2>
+<form id='contactform' onsubmit="return submitContactForm()">
+<input type='hidden' name='hospital' value={{ hospital_id }}>
+<table>
+<tr><td><b>Add Person</b></td><a href='javascript:populateForm("/mednet/sahana/add_person/");' id='plus_link'><img src='http://haiti.opensgi.net/media/img/admin/icon_addlink.gif' border=0></a></tr></tr>
+{{ form.as_table }}
+</table>
+<button type='submit' value='Submit Contact' class='contact'>Submit Contact</button>
+</form>
+<center>
+</body>

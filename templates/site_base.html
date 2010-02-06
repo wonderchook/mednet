@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us" >
+<head>
+<title>Kapab MedNet - {% block title %}{% endblock %}</title>
+<script type='text/javascript' src="/media/js/jquery.js"></script>
+<link type="text/css" href="http://jqueryui.com/latest/themes/base/ui.all.css" rel="stylesheet" />
+<script type="text/javascript" src="http://jqueryui.com/latest/ui/ui.core.js"></script>
+<script type="text/javascript" src="http://jqueryui.com/latest/ui/ui.datepicker.js"></script>
+<link rel="stylesheet" media="all" href="/media/css/kapab-style.css" />
+{% block extra_head %}{% endblock %}
+</head>
+<body>
+
+
+<div id="container">
+    <div id="header">
+		<div id='authentication'>
+		{% if user.is_authenticated %}
+			Logged In as {{ user.username }}&nbsp;&nbsp;
+			{% if user.is_staff %}
+				<a href='/mednet/admin/'>Admin</a>&nbsp;&nbsp;	
+			{% endif %}
+			<a href='/mednet/accounts/logout'>Logout</a>	
+			
+    		{% else %}
+   	 		<a href='/mednet/accounts/login/?next=/mednet/'>Login</a>	
+    		{% endif %}
+		</div>
+		<h2><img src='/media/img/haiti-flag.png'>&nbsp;&nbsp;<a href="/mednet/">Kapab MedNet</a></h2>
+		
+        <ul id="menu">
+            <li><a href="/mednet/">Home</a></li>
+            <li><a href="/mednet/hospitals/">Hospitals</a></li>
+            <li><a href="/mednet/messaging/">Messages</a></li>
+            <li><a href="/mednet/map/">Map</a></li>
+            <li><a href="/mednet/about/">About</a></li>
+        </ul>
+
+    </div>
+
+	<div id="content">
+	{% block content %}
+		<div id="leftcontainer">
+		{% block leftcontainer %}
+		{% endblock %}
+		</div>
+		<div id="rightcontainer">
+		{% block rightcontainer %}
+		{% endblock %}
+		</div>
+	{% endblock %}
+	</div>
+	<div id="footer">
+		<p>Kapab MedNet - A CrisisCommons Project</p>
+
+	</div>
+</div>
+<script type='text/javascript' src="/media/js/kapab-message.js"></script>
+</body>
+</html>

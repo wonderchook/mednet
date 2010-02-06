@@ -1,0 +1,39 @@
+{% extends "site_base.html" %}
+{% block title %}Voice{% endblock %}
+{% block leftcontainer %}
+<h2>Voice Message</h2>
+<table border=1>
+<tr><td><b>Start Time:</b></td><td>{{ next_voice_message.start_time }}</td></tr>
+<tr><td><b>Phone Number:</b></td><td>{{ next_voice_message.phone_number }}</td></tr>
+<tr><td><b>Subject:</b></td><td>{{ next_voice_message.subject }}</td></tr>
+<tr><td><b>Notes:</b></td><td>{{ next_voice_message.notes }}</td></tr>
+<tr><td><b>Voicemail:</b></td><td><embed src= "http://www.odeo.com/flash/audio_player_standard_gray.swf" quality="high" width="300" height="52" allowScriptAccess="always" wmode="transparent" type="application/x-shockwave-flash" flashvars="valid_sample_rate=true&external_url={{ next_voice_message.mp3_url }}" pluginspage="http://www.macromedia.com/go/getflashplayer"> </embed></td></tr>
+<tr><td><b>Status:</b></td><td>{{ next_voice_message.status }}</td></tr>
+<tr><td><b>Status Changed Date:</b></td><td>{{ next_voice_message.status_changed_date }}</td></tr>
+</table>
+<form id='messageactionform' action="#">
+<input id='messagetype' type='hidden' name='messagetype' value='voice'>
+<input id='msg_id' type='hidden' name='msg_id' value='{{ next_voice_message.pk }}'>
+<button type='submit' value='Complete' class='complete'>Complete</button>
+<button type='submit' value='Ignore' class='ignore'>Ignore</button>
+</form>
+<h2>Select the Hospital That this message is for</h2>
+<form id='messageform'>
+<select name='hospital' class='hospital-select'>
+{% for hospital in hospitals %}
+<option value='{{ hospital.pk }}'>{{ hospital.name }}</option>
+{% endfor %}
+</select>
+<br/><br/>
+<button type='submit' value='Bed Capacity' class='capacity'>Bed Capacity</button>
+<button type='submit' value='Contacts' class='contacts'>Contacts</button>
+<button type='submit' value='Resources' class='resources'>Resources</button>
+<button type='submit' value='Services' class='services'>Services</button>
+<button type='submit' value='Requests' class='requests'>Requests</button>
+<button type='submit' value='Activities' class='activities'>Activities</button>
+{% endblock %}
+
+{% block rightcontainer %}
+<div id='hospitaldataform'></div>
+</form>
+{% endblock %}

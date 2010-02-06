@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+  <name>Incidents</name>
+  <description>Incidents</description>
+{% for incident in incidents %}
+  <Placemark>
+    <name>{{ incident.title|escape }}</name>
+    <description>
+	{{ incident.description|escape }}
+    </description>
+    {{ incident.location.point.kml|safe }}
+    <TimeStamp>
+      <when>{{ incident.date_time|date:"Y-m-d\TH:i:s\Z" }}</when>
+    </TimeStamp>
+  </Placemark>
+{% endfor %}
+</Document>
+</kml>
+
+

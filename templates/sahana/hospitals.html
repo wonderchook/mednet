@@ -1,0 +1,29 @@
+{% extends "site_base.html" %}
+{% block title %}Welcome{% endblock %}
+{% block content %}
+<center><h2>Hospitals</h2></center>
+<table width='100%'>
+<tr><td><b>Hospital Name</b></td><td><b>City</b></td></tr>
+{% for hospital in hospitals.object_list %}
+<tr>
+<td><a href='/mednet/hospital/{{ hospital.pk }}'>{{ hospital.name }}</a></td>
+<td>{{ hospital.city }}</td>
+</tr>
+{% endfor %}
+</table>
+<div class="pagination">
+    <span class="step-links">
+        {% if hospitals.has_previous %}
+            <a href="?page={{ hospitals.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ hospitals.number }} of {{ hospitals.paginator.num_pages }}.
+        </span>
+
+        {% if hospitals.has_next %}
+            <a href="?page={{ hospitals.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}

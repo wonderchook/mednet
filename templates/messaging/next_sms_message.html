@@ -1,0 +1,36 @@
+{% extends "site_base.html" %}
+{% block title %}SMS{% endblock %}
+{% block leftcontainer %}
+<h2>SMS Message</h2>
+<table border=1>
+<tr><td><b>Sender:</b></td><td>{{ next_sms_message.sender }}</td></tr>
+<tr><td><b>Message:</b></td><td>{{ next_sms_message.message }}</td></tr>
+<tr><td><b>Date Sent:</b></td><td>{{ next_sms_message.date_sent }}</td></tr>
+<tr><td><b>Status:</b></td><td>{{ next_sms_message.status }}</td></tr>
+<tr><td><b>Status Changed Date:</b></td><td>{{ next_sms_message.status_changed_date }}</td></tr>
+</table>
+<form id="messageactionform" action="#">
+<input id='messagetype' type='hidden' name='messagetype' value='sms'>
+<input id='msg_id' type='hidden' name='msg_id' value='{{ next_sms_message.pk }}'>
+<button type='submit' value='Complete' class='complete'>Complete</button>
+<button type='submit' value='Ignore' class='ignore'>Ignore</button>
+</form>
+<h2>Select the Hospital That this message is for</h2>
+<form id='messageform'>
+<select name='hospital' class='hospital-select'>
+{% for hospital in hospitals %}
+<option value='{{ hospital.pk }}'>{{ hospital.name }}</option>
+{% endfor %}
+</select>
+<br/><br/>
+<button type='submit' value='Bed Capacity' class='capacity'>Bed Capacity</button>
+<button type='submit' value='Contacts' class='contacts'>Contacts</button>
+<button type='submit' value='Resources' class='resources'>Resources</button>
+<button type='submit' value='Services' class='services'>Services</button>
+<button type='submit' value='Requests' class='requests'>Requests</button>
+<button type='submit' value='Activities' class='activities'>Activities</button>
+{% endblock %}
+{% block rightcontainer %}
+<div id='hospitaldataform'></div>
+</form>
+{% endblock %}

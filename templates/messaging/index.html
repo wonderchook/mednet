@@ -1,0 +1,12 @@
+{% extends "site_base.html" %}
+{% block title %}Messages{% endblock %}
+{% block content %}
+<center><h2>Welcome to Kapab MedNet</h2></center>
+
+<center>
+<table border='0' cellpadding=35 cellspacing=35>
+<tr><td><center><a href='/mednet/messaging/next_message/mail/'><img src='/media/img/email.png' border=0></a><center></td><td><center><a href='/mednet/messaging/next_message/sms/'><img src='/media/img/sms.png' border=0></a></center></td><td><center><a href='/mednet/messaging/next_message/voice/'><img src='/media/img/voice.png' border=0></a></center></td></tr>
+<td><center>{{ mail_count }}<br/>Email</center></td><td><center>{{ sms_count }}<br/>SMS</center></td><td><center>{{ voice_count }}<br/>Voicemail</center></td></tr>
+</table>
+<br/>
+{% endblock %}

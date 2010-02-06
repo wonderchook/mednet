@@ -1,0 +1,10 @@
+<center>
+<h2>Hospital Request Form</h2>
+<form id='hospitalrequestform' onsubmit="return submitRequestForm()">
+<input type='hidden' name='hospital' value={{ hospital_id }}>
+<table>
+{{ form.as_table }}
+</table>
+<button type='submit' value='Submit Request' class='request'>Submit Request</button>
+</form>
+<center>

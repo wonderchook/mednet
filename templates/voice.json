@@ -1,0 +1,20 @@
+{ "type" : "FeatureCollection",
+  "features": [
+{% for v in voicemail %}
+  { "type": "Feature",
+    "properties" : { "gvoice_id": "{{ v.gvoice_id }}",
+    		     "start_time": "{{ v.start_time }}",
+    		     "phone_number": "{{ v.phone_number }}",
+    		     "subject": "{{ v.subject|escapejs }}",
+    		     "notes": "{{ v.notes|escapejs }}",
+    		     "mp3_url": "http://haiti.opensgi.net{{ v.mp3_url }}"
+		  }	
+{% if forloop.last %}
+}
+{% else %}
+    },
+{% endif %}
+
+{% endfor %}
+]
+}

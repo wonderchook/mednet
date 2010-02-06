@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sahanapy success="True" results="166" domain="haiti.sahanafoundation.org" url="http://haiti.opensgi.net/ushahidi/sahana/prod">
+  {% for hospital in hospitals %}
+   <resource name="hms_hospital" uuid="{{ hospital.uuid }}" created_on="{{ hospital.created_on }}" modified_on="{{ hostpital.modified_on }}" url="http://haiti.sahanafoundation.org/prod/hms/hospital/{{ hospital.id }}">
+     <data field="phone_emergency">{{ hosptial.phone_emergency }}</data>
+     <data field="phone_business">{{ hosptial.phone_business }}</data>
+     <data field="postcode">{{ hosptial.phone_postcode }}</data>
+     <reference field="location_id" resource="gis_location" uuid="{{ hospital.location.uuid }}" lat="{{ hospital.location.point.y" lon="{{ hospital.location.point.x }}"></reference>
+     <data field="ems_reason">{{ hospital.ems_reason }}</data>
+     <data field="city">{{ hosptial.city }}</data>
+     <data field="comments">{{ hospital.comments }}</data>
+     <data field="email">{{ hosptial.email }}</data>
+     <data field="fax">{{ hospital.fax }}</data>
+     <data field="address">{{ hosptital.address }}</data>
+     <data field="name">{{ hosptial.name }}</data>
+   </resource>
+   {% endfor %}
+</sahanapy>
+
+     
+     

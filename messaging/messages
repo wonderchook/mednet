@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:geochat="http://geochat.instedd.org/api/1.0" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:a10="http://www.w3.org/2005/Atom" version="2.0">
+  <channel xml:base="http://geochat.instedd.org/api/groups/HaitiMed/messages">
+    <title>GeoChat - Messages in Group</title>
+    <description />
+    <lastBuildDate>Tue, 26 Jan 2010 21:50:16 Z</lastBuildDate>
+    <item>
+      <author>Jeffrey Johnson</author>
+      <title>Testing haitimed</title>
+      <pubDate>Tue, 26 Jan 2010 21:50:16 Z</pubDate>
+      <a10:link href="http://geochat.instedd.org/api/messages/470a3d99-94fe-4dc1-90ac-80d3881151d7" />
+      <a10:updated>2010-01-26T21:50:16Z</a10:updated>
+      <guid>http://geochat.instedd.org/api/messages/470a3d99-94fe-4dc1-90ac-80d3881151d7</guid>
+      <geo:lat>25.7742652893066</geo:lat>
+      <geo:long>-80.1936569213867</geo:long>
+      <geochat:ThreadId>df5d5494-abda-4a95-9c1f-3bb6b6d3db66</geochat:ThreadId>
+      <geochat:ResponseOf></geochat:ResponseOf>
+      <geochat:IsGroupBlast>false</geochat:IsGroupBlast>
+      <geochat:GroupAlias>HaitiMed</geochat:GroupAlias>
+      <geochat:SenderAlias>ortelius</geochat:SenderAlias>
+      <geochat:Route>sms</geochat:Route>
+    </item>
+    <item>
+      <author>Jeffrey Johnson</author>
+      <title>Test Message</title>
+      <pubDate>Tue, 26 Jan 2010 21:46:37 Z</pubDate>
+      <a10:link href="http://geochat.instedd.org/api/messages/06ec941d-f173-4207-a976-c1f97119d237" />
+      <a10:updated>2010-01-26T21:46:37Z</a10:updated>
+      <guid>http://geochat.instedd.org/api/messages/06ec941d-f173-4207-a976-c1f97119d237</guid>
+      <geo:lat>25.7742652893066</geo:lat>
+      <geo:long>-80.1936569213867</geo:long>
+      <geochat:ThreadId>60d52a68-54ee-492c-9c7d-f97c1fd3094d</geochat:ThreadId>
+      <geochat:ResponseOf></geochat:ResponseOf>
+      <geochat:IsGroupBlast>true</geochat:IsGroupBlast>
+      <geochat:GroupAlias>HaitiMed</geochat:GroupAlias>
+      <geochat:SenderAlias>ortelius</geochat:SenderAlias>
+      <geochat:Route>geochat</geochat:Route>
+    </item>
+  </channel>
+</rss>

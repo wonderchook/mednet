@@ -1,0 +1,18 @@
+{ "type" : "FeatureCollection",
+  "features": [
+{% for s in sms %}
+  { "type": "Feature",
+    "properties" : { "guid": "{{ s.guid }}",
+    		     "sender": "{{ s.sender }}",
+    		     "message": "{{ s.message|escapejs }}",
+    		     "date_sent": "{{ s.date_sent }}",
+    		     "notes": "{{ s.notes|escapejs }}"
+		  }	
+{% if forloop.last %}
+}
+{% else %}
+    },
+{% endif %}
+{% endfor %}
+]
+}

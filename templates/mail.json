@@ -1,0 +1,19 @@
+{ "type" : "FeatureCollection",
+  "features": [
+{% for m in mail %}
+  { "type": "Feature",
+    "properties" : { "id": "{{ m.message_id }}",
+    		     "from_address": "{{ m.from_address }}",
+    		     "subject": "{{ m.subject|escapejs }}",
+    		     "date_sent": "{{ m.date_sent }}",
+    		     "message": "{{ m.message|escapejs }}",
+    		     "return_path": "{{ m.return_path }}"
+		  }	
+{% if forloop.last %}
+}
+{% else %}
+    },
+{% endif %}
+{% endfor %}
+]
+}

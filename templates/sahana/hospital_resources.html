@@ -1,0 +1,10 @@
+<center>
+<h2>Hospital Resources Form</h2>
+<form id='resourceform' onsubmit="return submitResourceForm()">
+<input type='hidden' name='hospital' value={{ hospital_id }}>
+<table>
+{{ form.as_table }}
+</table>
+<button type='submit' value='Submit Resource Report' class='resource'>Submit Resource Report</button>
+</form>
+<center>

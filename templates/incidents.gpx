@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" creator="" xsi:schemaLocation="http://www.topografix.com/GPX/1/1  http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1">
+ 
+    {% for incident in incidents %}	
+    <wpt lat="{{ incident.location.point.y }}" lon="{{ incident.location.point.x}}">  
+    <time>{{ incident.date_time|date:"Y-m-d\TH:i:s\Z" }}</time>
+    <name>{{ incident.title }}</name>
+    <desc>{{ incident.description }}</desc>
+    </wpt>
+    {% endfor %}
+</gpx>

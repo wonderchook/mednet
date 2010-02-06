@@ -1,0 +1,20 @@
+{ "type" : "FeatureCollection",
+  "features": ]
+{% for incident in incidents %}
+  { "type": "Feature",
+    "geometry" : {"type": "Point", "coordinates": [{{incident.location.point.x}}, {{incident.location.point.y}} ]},
+    "properties" : { "ushahidi_id": {{ incident.ushahidi_id }},
+    		     "title": "{{ incident.title }}",
+		     "description" : "{{ incident.description }}",
+		     "date_time" : "{{ incident.date_time|date:"Y-m-d\TH:i:s\Z" }}",
+		     "mode": {{ incident.mode }},
+		     "active": {{ incident.active|lower }},
+		     "verified": {{ incident.verified|lower}},
+		     "categories" : [ {% for category in incident.categories.all %}{{ category.ushahidi_id }},{% endfor %}]
+		  }	
+		       	   
+    },
+{% endfor %}
+]
+}
+

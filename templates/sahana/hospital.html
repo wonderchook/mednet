@@ -1,0 +1,65 @@
+{% extends "site_base.html" %}
+{% block title %}{{ hospital.name }}{% endblock %}
+{% block extra_head %}{{ map.media }}{% endblock %}
+{% block content %}
+<center><h2>{{ hospital.name }}</h2></center>
+
+<center>
+<button type='submit' value='Activities' class='activities'>Activities</button>
+<button type='submit' value='Bed Capacity' class='capacity'>Bed Capacity</button>
+<button type='submit' value='Contacts' class='contacts'>Contacts</button>
+<button type='submit' value='Requests' class='requests'>Requests</button>
+<button type='submit' value='Resources' class='resources'>Resources</button>
+<button type='submit' value='Services' class='services'>Services</button>
+</center>
+
+<br/>
+{% if user.is_staff %}
+	<a href='/mednet/admin/sahana/hmshospital/{{ hospital.id }}/?next=/mednet/hospital/{{ hospital.id }}'>Edit</a>&nbsp;&nbsp;
+{% else %}
+xxx
+{% endif %}
+
+<table>
+<tr><td valign ='top'><b>Location:</td><td>{{ map }}</td></tr>
+<tr><td><b>MOH UUID:</b></td><td>{{hospital.gov_uuid }}</td></tr>
+<tr><td><b>Name:</b></td><td>{{hospital.name }}</td></tr>
+<tr><td><b>Other Name:</b></td><td>{{hospital.aka1 }}</td></tr>
+<tr><td><b>Other Name:</b></td><td>{{hospital.aka2 }}</td></tr>
+<tr><td><b>Facility Type:</b></td><td>{{hospital.facility_type }}</td></tr>
+<tr><td><b>Organization:</b></td><td>{{hospital.organization }}</td></tr>
+<tr><td><b>Address:</b></td><td>{{hospital.address }}</td></tr>
+<tr><td><b>Postcode:</b></td><td>{{hospital.postcode }}</td></tr>
+<tr><td><b>City:</b></td><td>{{hospital.city }}</td></tr>
+<tr><td><b>Phone/Exchange:</b></td><td>{{hospital.exchange }}</td></tr>
+<tr><td><b>Phone/Business:</b></td><td>{{hospital.phone_business }}</td></tr>
+<tr><td><b>Phone/Emergency:</b></td><td>{{hospital.phone_emergency }}</td></tr> 		
+<tr><td><b>Website:</b></td><td>{{hospital.website }}</td></tr>
+<tr><td><b>Email:</b></td><td>{{hospital.email }}</td></tr>
+<tr><td><b>FAX:</b></td><td>{{hospital.fax }}</td></tr>
+<tr><td><b>Total Beds:</b></td><td>{{hospital.total_beds }}</td></tr>
+<tr><td><b>Available Beds:</b></td><td>{{hospital.available_beds }}</td></tr>
+<tr><td><b>EMS Traffic Status:</b></td><td>{{hospital.ems_status }}</td></tr>
+<tr><td><b>EMS Status Reason:</b></td><td>{{hospital.ems_reason }}</td></tr>
+<tr><td><b>OR Status:</b></td><td>{{hospital.or_status }}</td></tr>
+<tr><td><b>OR Status Reason:</b></td><td>{{hospital.or_reason }}</td></tr>
+<tr><td><b>Facility Status:</b></td><td>{{hospital.facility_status }}</td></tr>
+<tr><td><b>Clinical Status:</b></td><td>{{hospital.clinical_status }}</td></tr>
+<tr><td><b>Morgue Status:</b></td><td>{{hospital.morgue_status }}</td></tr>
+<tr><td><b>Morgue Units Available:</b></td><td>{{hospital.morgue_units }}</td></tr>
+<tr><td><b>Security Status:</b></td><td>{{hospital.security_status }}</td></tr>
+<tr><td><b>Number of doctors:</b></td><td>{{hospital.doctors }}</td></tr>
+<tr><td><b>Number of nurses:</b></td><td>{{hospital.nurses }}</td></tr>
+<tr><td><b>Number of non-medical staff:</b></td><td>{{hospital.non_medical_staff }}</td></tr>
+<tr><td><b>Staffing:</b></td><td>{{hospital.staffing }}</td></tr>
+<tr><td><b>Facility Operations:</b></td><td>{{hospital.facility_operations }}</td></tr>
+<tr><td><b>Clinical Operations:</b></td><td>{{hospital.clinical_operations }}</td></tr>
+<tr><td><b>Road Conditions:</b></td><td>{{hospital.road_conditions }}</td></tr>
+<tr><td><b>Source of Information:</b></td><td>{{hospital.info_source }}</td></tr>
+<tr><td><b>Comments:</b></td><td>{{hospital.comments }}</td></tr>
+</table>
+{% for image in images %}
+<img src='/{{ image.image }}'>
+
+{% endfor %}
+{% endblock %}
