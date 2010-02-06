@@ -3,6 +3,7 @@ from mednet.messaging.models import *
 from mednet.sahana.models import *
 from mednet.ushahidi.models import *
 from django.contrib import databrowse
+from django.conf import settings
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -59,3 +60,9 @@ urlpatterns = patterns('',
     (r'^mednet/sahana/add_person/', 'mednet.sahana.views.person_form'),
     (r'^mednet/api/0.1/rest/', include('mednet.piston_api.urls')),
 )
+
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        (r'^media/(?P<path>.*)$', 'django.views.static.serve',
+                    {'document_root': settings.MEDIA_ROOT }),
+    )
