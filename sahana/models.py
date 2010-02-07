@@ -353,6 +353,37 @@ IMAGE_TYPE_CHOICES = (
 	(99, 'Other'),
 )
 
+SUPPLY_TYPE_CHOICES = (
+  (1, 'AMPULE'),
+  (2, 'VIAL'),
+  (3, 'TAB'),
+  (4, 'BOT'),
+  (5, 'TUBE'),
+  (6, 'BOT'),
+  (7, 'MILLE'),
+  (8, 'EA'),
+  (9, 'LITRE'),
+)
+
+
+class HmsRequestItem(models.Model):
+    created_on = models.DateTimeField(null=True, blank=True)
+    modified_on = models.DateTimeField(null=True, blank=True)
+    uuid = models.CharField(unique=True, max_length=64, null=True, blank=True)
+    created_by = models.ForeignKey(User, null=True, blank=True, related_name='hmsrequest_created_by')
+    modified_by = models.ForeignKey(User, null=True, blank=True, related_name='hmsrequest_modified_by')
+    deleted = models.CharField(max_length=1, blank=True)
+    request = models.ForeignKey(HmsRequest, null=True, blank=True)
+    item = models.CharField(max_length=512, blank=True, null=True)
+    unit = models.CharField(max_length=128, blank=true, null=True)
+    quanity = models.IntegerField(null=True, blank=True)
+    item_id = models.CharField(max_length=512, blank=True, blank=True)
+    item_category = models.CharField(max_length=512, blank=True, blank=True)
+  verbose_name = "Medical Supply"
+  verbose_name_plural = "Medical Supplies"
+    
+  
+  
 class HmsImage(models.Model):
     created_on = models.DateTimeField(null=True, blank=True)
     modified_on = models.DateTimeField(null=True, blank=True)
